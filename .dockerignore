@@ -1,0 +1,13 @@
+**/bin
+**/obj
+**/.vs
+**/.vscode
+**/logs
+.git
+.gitignore
+.editorconfig
+documentation/
+powerfab-api/
+mcp-docs.txt
+tests/
+tools/
