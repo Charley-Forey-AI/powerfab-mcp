@@ -1,0 +1,39 @@
+---
+title: fsreqGetNestImage Constructor
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-get-nest-image-constructor-79162
+slug: fsreq-get-nest-image-constructor-79162
+node_id: 79162
+kind: Constructor
+parent: fsreqGetNestImage Class
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-get-nest-image-class-79161
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqGetNestImage Class
+- fsreqGetNestImage Constructor
+children: []
+---
+
+# fsreqGetNestImage Constructor
+
+Initializes a new instance of the [fsreqGetNestImage](_index.md) class
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+public fsreqGetNestImage()
+```
+
+See Also
+
+#### Reference
+
+[fsreqGetNestImage Class](_index.md)
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)

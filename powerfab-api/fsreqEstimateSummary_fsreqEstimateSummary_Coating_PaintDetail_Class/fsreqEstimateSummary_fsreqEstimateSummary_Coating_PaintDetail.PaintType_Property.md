@@ -1,0 +1,45 @@
+---
+title: fsreqEstimateSummary_fsreqEstimateSummary_Coating_PaintDetail.PaintType Property
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/paint-type-property-78059
+slug: paint-type-property-78059
+node_id: 78059
+kind: Property
+parent: fsreqEstimateSummary_fsreqEstimateSummary_Coating_PaintDetail Class
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-estimate-summaryfsreq-estimate-summarycoatingpaint-detail-class-78052
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqEstimateSummary_fsreqEstimateSummary_Coating_PaintDetail Class
+- fsreqEstimateSummary_fsreqEstimateSummary_Coating_PaintDetail Properties
+- fsreqEstimateSummary_fsreqEstimateSummary_Coating_PaintDetail.PaintType Property
+children: []
+---
+
+# fsreqEstimateSummary_fsreqEstimateSummary_Coating_PaintDetail.PaintType Property
+
+The type of paint
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+[XmlElementAttribute(DataType = "token")]
+public string PaintType { get; set; }
+```
+
+#### Property Value
+
+Type: String
+
+See Also
+
+#### Reference
+
+[fsreqEstimateSummary\_fsreqEstimateSummary\_Coating\_PaintDetail Class](_index.md)
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)

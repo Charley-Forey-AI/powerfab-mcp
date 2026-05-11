@@ -1,0 +1,45 @@
+---
+title: fsreqMakeReport.ReportGUID Property
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/report-guid-property-79553
+slug: report-guid-property-79553
+node_id: 79553
+kind: Property
+parent: fsreqMakeReport Class
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-make-report-class-79548
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqMakeReport Class
+- fsreqMakeReport Properties
+- fsreqMakeReport.ReportGUID Property
+children: []
+---
+
+# fsreqMakeReport.ReportGUID Property
+
+The report to run.
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+[XmlElementAttribute(DataType = "token")]
+public string ReportGUID { get; set; }
+```
+
+#### Property Value
+
+Type: String
+
+See Also
+
+#### Reference
+
+[fsreqMakeReport Class](_index.md)
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)

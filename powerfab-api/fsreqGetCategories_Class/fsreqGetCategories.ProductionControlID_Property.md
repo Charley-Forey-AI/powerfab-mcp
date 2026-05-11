@@ -1,0 +1,45 @@
+---
+title: fsreqGetCategories.ProductionControlID Property
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/production-control-id-property-78965
+slug: production-control-id-property-78965
+node_id: 78965
+kind: Property
+parent: fsreqGetCategories Class
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-get-categories-class-78959
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqGetCategories Class
+- fsreqGetCategories Properties
+- fsreqGetCategories.ProductionControlID Property
+children: []
+---
+
+# fsreqGetCategories.ProductionControlID Property
+
+The ProductionControlID of the job to retrieve the status of.
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+[XmlElementAttribute(DataType = "integer")]
+public string ProductionControlID { get; set; }
+```
+
+#### Property Value
+
+Type: String
+
+See Also
+
+#### Reference
+
+[fsreqGetCategories Class](_index.md)
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)

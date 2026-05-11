@@ -1,0 +1,44 @@
+---
+title: fsreqWorkPackageDepartmentTaskCompletion_Update.CompletedWeight Property
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/completed-weight-property-80941
+slug: completed-weight-property-80941
+node_id: 80941
+kind: Property
+parent: fsreqWorkPackageDepartmentTaskCompletion_Update Class
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-work-package-department-task-completionupdate-class-80937
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqWorkPackageDepartmentTaskCompletion_Update Class
+- fsreqWorkPackageDepartmentTaskCompletion_Update Properties
+- fsreqWorkPackageDepartmentTaskCompletion_Update.CompletedWeight Property
+children: []
+---
+
+# fsreqWorkPackageDepartmentTaskCompletion_Update.CompletedWeight Property
+
+new Hours of work package department task completion
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+public decimal CompletedWeight { get; set; }
+```
+
+#### Property Value
+
+Type: Decimal
+
+See Also
+
+#### Reference
+
+[fsreqWorkPackageDepartmentTaskCompletion\_Update Class](_index.md)
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)

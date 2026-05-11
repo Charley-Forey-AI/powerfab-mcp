@@ -1,0 +1,578 @@
+---
+title: fsreqCommand Class
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-command-class-77654
+slug: fsreq-command-class-77654
+node_id: 77654
+kind: Class
+parent: FabSuiteRequestApi Namespace
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fab-suite-request-api-77584
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqCommand Class
+children:
+- title: fsreqCommand Constructor
+  kind: Constructor
+  slug: fsreq-command-constructor-77655
+  path: fsreqCommand_Constructor.md
+- title: fsreqCommand.APILog Property
+  kind: Property
+  slug: api-log-property-77657
+  path: fsreqCommand.APILog_Property.md
+- title: fsreqCommand.CommandGUID Property
+  kind: Property
+  slug: command-guid-property-77658
+  path: fsreqCommand.CommandGUID_Property.md
+---
+
+# fsreqCommand Class
+
+Inheritance Hierarchy
+
+System.Object  
+  FabSuiteRequestApi.fsreqCommand  
+    [More...](#fullInheritance)
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+[SerializableAttribute]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTaskCompletion_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTaskCompletion_Update))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTaskCompletion_Insert))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTaskCompletion_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Unschedule))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Schedule))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_OffsetFutureWorkPackage))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Update))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Insert))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Split))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartmentTask_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartment_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartment_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartment_Update))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageDepartment_Insert))]
+[XmlIncludeAttribute(typeof(fsreqWorkshop_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartment_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkArea_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_Unschedule))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_ScheduleToWorkshop))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_OffsetFutureWorkPackage))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageGroup2List_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackageGroup1List_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_Update))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_Insert))]
+[XmlIncludeAttribute(typeof(fsreqWorkPackage_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentScheduleShift_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentScheduleShift_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentScheduleShift_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentSchedule_Move_Start_And_End_Dates))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentSchedule_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentSchedule_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentSchedule_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentFutureTask_Get))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentFutureTask_Delete))]
+[XmlIncludeAttribute(typeof(fsreqWorkAreaDepartmentFutureTask_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqVersion))]
+[XmlIncludeAttribute(typeof(fsreqValUser))]
+[XmlIncludeAttribute(typeof(fsreqValTruck))]
+[XmlIncludeAttribute(typeof(fsreqValStation))]
+[XmlIncludeAttribute(typeof(fsreqValJob))]
+[XmlIncludeAttribute(typeof(fsreqValInventory))]
+[XmlIncludeAttribute(typeof(fsreqValCutListItem))]
+[XmlIncludeAttribute(typeof(fsreqUserPartialGet))]
+[XmlIncludeAttribute(typeof(fsreqTransmittalGet))]
+[XmlIncludeAttribute(typeof(fsreqTFSManual))]
+[XmlIncludeAttribute(typeof(fsreqTFSCut))]
+[XmlIncludeAttribute(typeof(fsreqSplitPackageTFS))]
+[XmlIncludeAttribute(typeof(fsreqSplicePackageTFS))]
+[XmlIncludeAttribute(typeof(fsreqShopFloorSave))]
+[XmlIncludeAttribute(typeof(fsreqShip))]
+[XmlIncludeAttribute(typeof(fsreqSetInstanceLocation))]
+[XmlIncludeAttribute(typeof(fsreqSetCutListItemNestID))]
+[XmlIncludeAttribute(typeof(fsreqSetAssemblyAssociation))]
+[XmlIncludeAttribute(typeof(fsreqSaveTimeTrackingRecord))]
+[XmlIncludeAttribute(typeof(fsreqSaveNest))]
+[XmlIncludeAttribute(typeof(fsreqSaveInspectionTestRecord))]
+[XmlIncludeAttribute(typeof(fsreqSaveCNCFile))]
+[XmlIncludeAttribute(typeof(fsreqRemnant_Get))]
+[XmlIncludeAttribute(typeof(fsreqReturn))]
+[XmlIncludeAttribute(typeof(fsreqReceiveChecklistScan))]
+[XmlIncludeAttribute(typeof(fsreqReceiveASN))]
+[XmlIncludeAttribute(typeof(fsreqReceive))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderSummaryGet))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderSubcontractItemUpdate))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderSubcontractItemInsert))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderSubcontractItemGet))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderSubcontractItemDelete))]
+[XmlIncludeAttribute(typeof(fsreqProductionShippingProductivityGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionPlanningSettingsGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadMaterialUnreturn))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadMaterialReturn))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadMaterialUnload))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadMaterialLoad))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadMaterialRemove))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadMaterialAdd))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadRemainingGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadAdditionalDelete))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadAdditionalUpdate))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadAdditionalInsert))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadInputOptionsGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadIsDuplicateLoadNumber))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadAddAttachedFile))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadUnship))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadShip))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadUpdate))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadInsert))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadDelete))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlLoadGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlJobGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlFinishDelete))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlFinishUpdate))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlFinishInsert))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlFinishGet))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlCutListItemSwap))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlCutListItemSwapGetAvailable))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlCutListExportDSTVPlus))]
+[XmlIncludeAttribute(typeof(fsreqPrepareReportData))]
+[XmlIncludeAttribute(typeof(fsreqPing))]
+[XmlIncludeAttribute(typeof(fsreqPickListGet))]
+[XmlIncludeAttribute(typeof(fsreqNestSolutionGet))]
+[XmlIncludeAttribute(typeof(fsreqMaxTruck))]
+[XmlIncludeAttribute(typeof(fsreqMakeReport))]
+[XmlIncludeAttribute(typeof(fsreqMachineGroup_Get))]
+[XmlIncludeAttribute(typeof(fsreqMachine_Get))]
+[XmlIncludeAttribute(typeof(fsreqLoad))]
+[XmlIncludeAttribute(typeof(fsreqLaborRate_Delete))]
+[XmlIncludeAttribute(typeof(fsreqLaborRate_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqLaborRate_Get))]
+[XmlIncludeAttribute(typeof(fsreqInventoryRemnant_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqDepartmentShift_Delete))]
+[XmlIncludeAttribute(typeof(fsreqDepartmentShift_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqDepartmentShift_Get))]
+[XmlIncludeAttribute(typeof(fsreqDepartment_Delete))]
+[XmlIncludeAttribute(typeof(fsreqDepartment_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqDepartment_Get))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlCutList_Update))]
+[XmlIncludeAttribute(typeof(fsreqProductionControlCutList_Get))]
+[XmlIncludeAttribute(typeof(fsreqCostType_Delete))]
+[XmlIncludeAttribute(typeof(fsreqCostType_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqCostType_Get))]
+[XmlIncludeAttribute(typeof(fsreqCostCode_Delete))]
+[XmlIncludeAttribute(typeof(fsreqCostCode_Upsert))]
+[XmlIncludeAttribute(typeof(fsreqCostCode_Get))]
+[XmlIncludeAttribute(typeof(fsreqInventoryTransaction_GetLastTransactionID))]
+[XmlIncludeAttribute(typeof(fsreqInventoryMove))]
+[XmlIncludeAttribute(typeof(fsreqInventoryLocationSweepScan))]
+[XmlIncludeAttribute(typeof(fsreqInventoryLocationSweepComplete))]
+[XmlIncludeAttribute(typeof(fsreqInventoryLocationRestrictionGet))]
+[XmlIncludeAttribute(typeof(fsreqInventoryJobCostingTransaction_Get))]
+[XmlIncludeAttribute(typeof(fsreqInventoryAuditScan))]
+[XmlIncludeAttribute(typeof(fsreqInventoryAuditSave))]
+[XmlIncludeAttribute(typeof(fsreqInventoryAdd))]
+[XmlIncludeAttribute(typeof(fsreqIntermediateCompanyCodes))]
+[XmlIncludeAttribute(typeof(fsreqInspectionDocumentAdd))]
+[XmlIncludeAttribute(typeof(fsreqGetTFSDetails))]
+[XmlIncludeAttribute(typeof(fsreqGetTransmittalDetails))]
+[XmlIncludeAttribute(typeof(fsreqGetTimeTrackingSubjects))]
+[XmlIncludeAttribute(typeof(fsreqGetSubCategories))]
+[XmlIncludeAttribute(typeof(fsreqGetStations))]
+[XmlIncludeAttribute(typeof(fsreqGetSequences))]
+[XmlIncludeAttribute(typeof(fsreqGetRouteDetails))]
+[XmlIncludeAttribute(typeof(fsreqGetRFIDetails))]
+[XmlIncludeAttribute(typeof(fsreqGetReportTypes))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrder_UpdateSyncStatus))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderShippingMethod_Insert))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderShippingMethod_Update))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderShippingMethod_Delete))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderShippingMethod_Get))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPOType_Insert))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPOType_Update))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPOType_Delete))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPOType_Get))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPaymentTerm_Insert))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPaymentTerm_Update))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPaymentTerm_Delete))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderFOB_Update))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderFOB_Delete))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderPaymentTerm_Get))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderFOB_Insert))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderFOB_Get))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderItemReceiveTransaction_Get))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrderItem_Get))]
+[XmlIncludeAttribute(typeof(fsreqPurchaseOrder_Get))]
+[XmlIncludeAttribute(typeof(fsreqPlanningRuleWarning_Get))]
+[XmlIncludeAttribute(typeof(fsreqGetPurchaseOrderInformationTransactions))]
+[XmlIncludeAttribute(typeof(fsreqGetPurchaseOrderInformation))]
+[XmlIncludeAttribute(typeof(fsreqGetProjectStatus))]
+[XmlIncludeAttribute(typeof(fsreqGetProjectScheduleSnapshots))]
+[XmlIncludeAttribute(typeof(fsreqGetProjectScheduleBaselinePlans))]
+[XmlIncludeAttribute(typeof(fsreqGetProjectSchedule))]
+[XmlIncludeAttribute(typeof(fsreqGetProductionShippingStatus))]
+[XmlIncludeAttribute(typeof(fsreqGetProductionControlJobs))]
+[XmlIncludeAttribute(typeof(fsreqGetProductionControlJobInformationTransactions))]
+[XmlIncludeAttribute(typeof(fsreqGetProductionControlJobInformation))]
+[XmlIncludeAttribute(typeof(fsreqGetPricingInformation))]
+[XmlIncludeAttribute(typeof(fsreqGetNestStatus))]
+[XmlIncludeAttribute(typeof(fsreqGetNestImage))]
+[XmlIncludeAttribute(typeof(fsreqGetNestData))]
+[XmlIncludeAttribute(typeof(fsreqGetModelObjectIDs))]
+[XmlIncludeAttribute(typeof(fsreqGetLots))]
+[XmlIncludeAttribute(typeof(fsreqGetLoads))]
+[XmlIncludeAttribute(typeof(fsreqGetInventoryTransactions))]
+[XmlIncludeAttribute(typeof(fsreqGetInventorySummary))]
+[XmlIncludeAttribute(typeof(fsreqGetInventoryLocationSweeps))]
+[XmlIncludeAttribute(typeof(fsreqGetInventoryLocations))]
+[XmlIncludeAttribute(typeof(fsreqGetInventory))]
+[XmlIncludeAttribute(typeof(fsreqGetInspectionTestTypes))]
+[XmlIncludeAttribute(typeof(fsreqGetInspectionTestSubjects))]
+[XmlIncludeAttribute(typeof(fsreqGetInspectionTests))]
+[XmlIncludeAttribute(typeof(fsreqGetInspectionTestRecordSummary))]
+[XmlIncludeAttribute(typeof(fsreqGetInspectionTestRecordsCondensed))]
+[XmlIncludeAttribute(typeof(fsreqGetInspectionTestRecords))]
+[XmlIncludeAttribute(typeof(fsreqGetFilterSetDetails))]
+[XmlIncludeAttribute(typeof(fsreqGetFilterSelections))]
+[XmlIncludeAttribute(typeof(fsreqGetDrawings))]
+[XmlIncludeAttribute(typeof(fsreqGetDocument))]
+[XmlIncludeAttribute(typeof(fsreqGetCutList))]
+[XmlIncludeAttribute(typeof(fsreqGetCurrencies))]
+[XmlIncludeAttribute(typeof(fsreqGetCountries))]
+[XmlIncludeAttribute(typeof(fsreqGetChangeOrderDetails))]
+[XmlIncludeAttribute(typeof(fsreqGetCategories))]
+[XmlIncludeAttribute(typeof(fsreqGetBillOfMaterials))]
+[XmlIncludeAttribute(typeof(fsreqGetAssemblies))]
+[XmlIncludeAttribute(typeof(fsreqFirmContact_Delete))]
+[XmlIncludeAttribute(typeof(fsreqFirmContact_Update))]
+[XmlIncludeAttribute(typeof(fsreqFirmContact_Insert))]
+[XmlIncludeAttribute(typeof(fsreqFirmContact_Get))]
+[XmlIncludeAttribute(typeof(fsreqFirmAddress_Delete))]
+[XmlIncludeAttribute(typeof(fsreqFirmAddress_Update))]
+[XmlIncludeAttribute(typeof(fsreqFirmAddress_Insert))]
+[XmlIncludeAttribute(typeof(fsreqFirmAddresses_Get))]
+[XmlIncludeAttribute(typeof(fsreqFirmAddress_Get))]
+[XmlIncludeAttribute(typeof(fsreqFirm_Delete))]
+[XmlIncludeAttribute(typeof(fsreqFirm_Update))]
+[XmlIncludeAttribute(typeof(fsreqFirm_Insert))]
+[XmlIncludeAttribute(typeof(fsreqFirm_Get))]
+[XmlIncludeAttribute(typeof(fsreqFilterSelectionsPRJGet))]
+[XmlIncludeAttribute(typeof(fsreqFilterSelectionsPDCGet))]
+[XmlIncludeAttribute(typeof(fsreqFilterSetDetailsGet))]
+[XmlIncludeAttribute(typeof(fsreqExtensionCommand))]
+[XmlIncludeAttribute(typeof(fsreqExportProjectSchedule))]
+[XmlIncludeAttribute(typeof(fsreqExportJobStatus))]
+[XmlIncludeAttribute(typeof(fsreqExportJob))]
+[XmlIncludeAttribute(typeof(fsreqEstimateSummaryUpdate))]
+[XmlIncludeAttribute(typeof(fsreqEstimateSummaryGet))]
+[XmlIncludeAttribute(typeof(fsreqEstimateJobCostGroupSummaryGet))]
+[XmlIncludeAttribute(typeof(fsreqEstimateJobCostSummaryGet))]
+[XmlIncludeAttribute(typeof(fsreqDrawingRevisionDelete))]
+[XmlIncludeAttribute(typeof(fsreqDrawingRevisionUpdate))]
+[XmlIncludeAttribute(typeof(fsreqDrawingRevisionInsert))]
+[XmlIncludeAttribute(typeof(fsreqDrawingRevisionGet))]
+[XmlIncludeAttribute(typeof(fsreqDrawingInputOptionsGet))]
+[XmlIncludeAttribute(typeof(fsreqDrawingFileGet))]
+[XmlIncludeAttribute(typeof(fsreqDrawingDelete))]
+[XmlIncludeAttribute(typeof(fsreqDrawingUpdate))]
+[XmlIncludeAttribute(typeof(fsreqDrawingInsert))]
+[XmlIncludeAttribute(typeof(fsreqDrawingGet))]
+[XmlIncludeAttribute(typeof(fsreqDrawingLogDelete))]
+[XmlIncludeAttribute(typeof(fsreqDrawingLogUpdate))]
+[XmlIncludeAttribute(typeof(fsreqDrawingLogInsert))]
+[XmlIncludeAttribute(typeof(fsreqDrawingLogGet))]
+[XmlIncludeAttribute(typeof(fsreqProjectGet))]
+[XmlIncludeAttribute(typeof(fsreqDeleteInspectionTestRecord))]
+[XmlIncludeAttribute(typeof(fsreqCreateInventoryLocationSweep))]
+[XmlIncludeAttribute(typeof(fsreqConnectRemote))]
+[XmlIncludeAttribute(typeof(fsreqConnect))]
+[XmlIncludeAttribute(typeof(fsreqCNCData))]
+[XmlIncludeAttribute(typeof(fsreqCloseRemote))]
+[XmlIncludeAttribute(typeof(fsreqClose))]
+[XmlTypeAttribute(Namespace = "http://www.fabsuite.com/xml/fabsuite-xml-request-v0108.xsd")]
+public class fsreqCommand
+```
+
+The fsreqCommand type exposes the following members.
+
+Constructors
+
+|  | Name | Description |
+| --- | --- | --- |
+| Public method | [fsreqCommand](fsreqCommand_Constructor.md) | Initializes a new instance of the fsreqCommand class |
+
+Properties
+
+|  | Name | Description |
+| --- | --- | --- |
+| Public property | [APILog](fsreqCommand.APILog_Property.md) | Indicates if this command should be logged to the database. The command must be of a type that supports logging to the database in order to take effect. Currently the commands supporting this option are: TFSCut |
+| Public property | [CommandGUID](fsreqCommand.CommandGUID_Property.md) | A GUID identifying this particular XML command. If a command fails due to a communication failure the client has no way of knowing if it has been processed. Each command that makes changes (as opposed to just retrieving data) will check the CommandGUID against the GUIDs that have already been processed. If the GUID has already been processed then it will not be re-processed and instead return with an error. This allows the client to saftely re-try a failed command without risking unintended changes. |
+
+See Also
+
+#### Reference
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)
+
+Inheritance Hierarchy
+
+System.Object  
+  FabSuiteRequestApi.fsreqCommand  
+    [FabSuiteRequestApi.fsreqClose](../fsreqClose_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCloseRemote](../fsreqCloseRemote_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCNCData](../fsreqCNCData_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqConnect](../fsreqConnect_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqConnectRemote](../fsreqConnectRemote_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCostCode\_Delete](../fsreqCostCode_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCostCode\_Get](../fsreqCostCode_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCostCode\_Upsert](../fsreqCostCode_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCostType\_Delete](../fsreqCostType_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCostType\_Get](../fsreqCostType_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCostType\_Upsert](../fsreqCostType_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqCreateInventoryLocationSweep](../fsreqCreateInventoryLocationSweep_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDeleteInspectionTestRecord](../fsreqDeleteInspectionTestRecord_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDepartment\_Delete](../fsreqDepartment_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDepartment\_Get](../fsreqDepartment_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDepartment\_Upsert](../fsreqDepartment_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDepartmentShift\_Delete](../fsreqDepartmentShift_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDepartmentShift\_Get](../fsreqDepartmentShift_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDepartmentShift\_Upsert](../fsreqDepartmentShift_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingDelete](../fsreqDrawingDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingFileGet](../fsreqDrawingFileGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingGet](../fsreqDrawingGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingInputOptionsGet](../fsreqDrawingInputOptionsGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingInsert](../fsreqDrawingInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingLogDelete](../fsreqDrawingLogDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingLogGet](../fsreqDrawingLogGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingLogInsert](../fsreqDrawingLogInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingLogUpdate](../fsreqDrawingLogUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingRevisionDelete](../fsreqDrawingRevisionDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingRevisionGet](../fsreqDrawingRevisionGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingRevisionInsert](../fsreqDrawingRevisionInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingRevisionUpdate](../fsreqDrawingRevisionUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqDrawingUpdate](../fsreqDrawingUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqEstimateJobCostGroupSummaryGet](../fsreqEstimateJobCostGroupSummaryGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqEstimateJobCostSummaryGet](../fsreqEstimateJobCostSummaryGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqEstimateSummaryGet](../fsreqEstimateSummaryGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqEstimateSummaryUpdate](../fsreqEstimateSummaryUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqExportJob](../fsreqExportJob_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqExportJobStatus](../fsreqExportJobStatus_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqExportProjectSchedule](../fsreqExportProjectSchedule_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqExtensionCommand](../fsreqExtensionCommand_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFilterSelectionsPDCGet](../fsreqFilterSelectionsPDCGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFilterSelectionsPRJGet](../fsreqFilterSelectionsPRJGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFilterSetDetailsGet](../fsreqFilterSetDetailsGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirm\_Delete](../fsreqFirm_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirm\_Get](../fsreqFirm_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirm\_Insert](../fsreqFirm_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirm\_Update](../fsreqFirm_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmAddress\_Delete](../fsreqFirmAddress_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmAddress\_Get](../fsreqFirmAddress_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmAddress\_Insert](../fsreqFirmAddress_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmAddress\_Update](../fsreqFirmAddress_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmAddresses\_Get](../fsreqFirmAddresses_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmContact\_Delete](../fsreqFirmContact_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmContact\_Get](../fsreqFirmContact_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmContact\_Insert](../fsreqFirmContact_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqFirmContact\_Update](../fsreqFirmContact_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetAssemblies](../fsreqGetAssemblies_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetBillOfMaterials](../fsreqGetBillOfMaterials_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetCategories](../fsreqGetCategories_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetChangeOrderDetails](../fsreqGetChangeOrderDetails_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetCountries](../fsreqGetCountries_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetCurrencies](../fsreqGetCurrencies_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetCutList](../fsreqGetCutList_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetDocument](../fsreqGetDocument_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetDrawings](../fsreqGetDrawings_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetFilterSelections](../fsreqGetFilterSelections_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetFilterSetDetails](../fsreqGetFilterSetDetails_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInspectionTestRecords](../fsreqGetInspectionTestRecords_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInspectionTestRecordsCondensed](../fsreqGetInspectionTestRecordsCondensed_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInspectionTestRecordSummary](../fsreqGetInspectionTestRecordSummary_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInspectionTests](../fsreqGetInspectionTests_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInspectionTestSubjects](../fsreqGetInspectionTestSubjects_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInspectionTestTypes](../fsreqGetInspectionTestTypes_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInventory](../fsreqGetInventory_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInventoryLocations](../fsreqGetInventoryLocations_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInventoryLocationSweeps](../fsreqGetInventoryLocationSweeps_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInventorySummary](../fsreqGetInventorySummary_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetInventoryTransactions](../fsreqGetInventoryTransactions_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetLoads](../fsreqGetLoads_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetLots](../fsreqGetLots_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetModelObjectIDs](../fsreqGetModelObjectIDs_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetNestData](../fsreqGetNestData_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetNestImage](../fsreqGetNestImage_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetNestStatus](../fsreqGetNestStatus_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetPricingInformation](../fsreqGetPricingInformation_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProductionControlJobInformation](../fsreqGetProductionControlJobInformation_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProductionControlJobInformationTransactions](../fsreqGetProductionControlJobInformationTransactions_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProductionControlJobs](../fsreqGetProductionControlJobs_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProductionShippingStatus](../fsreqGetProductionShippingStatus_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProjectSchedule](../fsreqGetProjectSchedule_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProjectScheduleBaselinePlans](../fsreqGetProjectScheduleBaselinePlans_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProjectScheduleSnapshots](../fsreqGetProjectScheduleSnapshots_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetProjectStatus](../fsreqGetProjectStatus_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetPurchaseOrderInformation](../fsreqGetPurchaseOrderInformation_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetPurchaseOrderInformationTransactions](../fsreqGetPurchaseOrderInformationTransactions_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetReportTypes](../fsreqGetReportTypes_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetRFIDetails](../fsreqGetRFIDetails_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetRouteDetails](../fsreqGetRouteDetails_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetSequences](../fsreqGetSequences_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetStations](../fsreqGetStations_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetSubCategories](../fsreqGetSubCategories_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetTFSDetails](../fsreqGetTFSDetails_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetTimeTrackingSubjects](../fsreqGetTimeTrackingSubjects_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqGetTransmittalDetails](../fsreqGetTransmittalDetails_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInspectionDocumentAdd](../fsreqInspectionDocumentAdd_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqIntermediateCompanyCodes](../fsreqIntermediateCompanyCodes_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryAdd](../fsreqInventoryAdd_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryAuditSave](../fsreqInventoryAuditSave_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryAuditScan](../fsreqInventoryAuditScan_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryJobCostingTransaction\_Get](../fsreqInventoryJobCostingTransaction_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryLocationRestrictionGet](../fsreqInventoryLocationRestrictionGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryLocationSweepComplete](../fsreqInventoryLocationSweepComplete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryLocationSweepScan](../fsreqInventoryLocationSweepScan_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryMove](../fsreqInventoryMove_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryRemnant\_Upsert](../fsreqInventoryRemnant_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqInventoryTransaction\_GetLastTransactionID](../fsreqInventoryTransaction_GetLastTransactionID_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqLaborRate\_Delete](../fsreqLaborRate_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqLaborRate\_Get](../fsreqLaborRate_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqLaborRate\_Upsert](../fsreqLaborRate_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqLoad](../fsreqLoad_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqMachine\_Get](../fsreqMachine_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqMachineGroup\_Get](../fsreqMachineGroup_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqMakeReport](../fsreqMakeReport_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqMaxTruck](../fsreqMaxTruck_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqNestSolutionGet](../fsreqNestSolutionGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPickListGet](../fsreqPickListGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPing](../fsreqPing_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPlanningRuleWarning\_Get](../fsreqPlanningRuleWarning_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPrepareReportData](../fsreqPrepareReportData_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlCutList\_Get](../fsreqProductionControlCutList_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlCutList\_Update](../fsreqProductionControlCutList_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlCutListExportDSTVPlus](../fsreqProductionControlCutListExportDSTVPlus_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlCutListItemSwap](../fsreqProductionControlCutListItemSwap_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlCutListItemSwapGetAvailable](../fsreqProductionControlCutListItemSwapGetAvailable_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlFinishDelete](../fsreqProductionControlFinishDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlFinishGet](../fsreqProductionControlFinishGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlFinishInsert](../fsreqProductionControlFinishInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlFinishUpdate](../fsreqProductionControlFinishUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlJobGet](../fsreqProductionControlJobGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadAddAttachedFile](../fsreqProductionControlLoadAddAttachedFile_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadAdditionalDelete](../fsreqProductionControlLoadAdditionalDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadAdditionalInsert](../fsreqProductionControlLoadAdditionalInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadAdditionalUpdate](../fsreqProductionControlLoadAdditionalUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadDelete](../fsreqProductionControlLoadDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadGet](../fsreqProductionControlLoadGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadInputOptionsGet](../fsreqProductionControlLoadInputOptionsGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadInsert](../fsreqProductionControlLoadInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadIsDuplicateLoadNumber](../fsreqProductionControlLoadIsDuplicateLoadNumber_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadMaterialAdd](../fsreqProductionControlLoadMaterialAdd_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadMaterialLoad](../fsreqProductionControlLoadMaterialLoad_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadMaterialRemove](../fsreqProductionControlLoadMaterialRemove_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadMaterialReturn](../fsreqProductionControlLoadMaterialReturn_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadMaterialUnload](../fsreqProductionControlLoadMaterialUnload_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadMaterialUnreturn](../fsreqProductionControlLoadMaterialUnreturn_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadRemainingGet](../fsreqProductionControlLoadRemainingGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadShip](../fsreqProductionControlLoadShip_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadUnship](../fsreqProductionControlLoadUnship_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionControlLoadUpdate](../fsreqProductionControlLoadUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionPlanningSettingsGet](../fsreqProductionPlanningSettingsGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProductionShippingProductivityGet](../fsreqProductionShippingProductivityGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqProjectGet](../fsreqProjectGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrder\_Get](../fsreqPurchaseOrder_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrder\_UpdateSyncStatus](../fsreqPurchaseOrder_UpdateSyncStatus_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderFOB\_Delete](../fsreqPurchaseOrderFOB_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderFOB\_Get](../fsreqPurchaseOrderFOB_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderFOB\_Insert](../fsreqPurchaseOrderFOB_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderFOB\_Update](../fsreqPurchaseOrderFOB_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderItem\_Get](../fsreqPurchaseOrderItem_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderItemReceiveTransaction\_Get](../fsreqPurchaseOrderItemReceiveTransaction_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPaymentTerm\_Delete](../fsreqPurchaseOrderPaymentTerm_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPaymentTerm\_Get](../fsreqPurchaseOrderPaymentTerm_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPaymentTerm\_Insert](../fsreqPurchaseOrderPaymentTerm_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPaymentTerm\_Update](../fsreqPurchaseOrderPaymentTerm_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPOType\_Delete](../fsreqPurchaseOrderPOType_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPOType\_Get](../fsreqPurchaseOrderPOType_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPOType\_Insert](../fsreqPurchaseOrderPOType_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderPOType\_Update](../fsreqPurchaseOrderPOType_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderShippingMethod\_Delete](../fsreqPurchaseOrderShippingMethod_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderShippingMethod\_Get](../fsreqPurchaseOrderShippingMethod_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderShippingMethod\_Insert](../fsreqPurchaseOrderShippingMethod_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderShippingMethod\_Update](../fsreqPurchaseOrderShippingMethod_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderSubcontractItemDelete](../fsreqPurchaseOrderSubcontractItemDelete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderSubcontractItemGet](../fsreqPurchaseOrderSubcontractItemGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderSubcontractItemInsert](../fsreqPurchaseOrderSubcontractItemInsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderSubcontractItemUpdate](../fsreqPurchaseOrderSubcontractItemUpdate_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqPurchaseOrderSummaryGet](../fsreqPurchaseOrderSummaryGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqReceive](../fsreqReceive_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqReceiveASN](../fsreqReceiveASN_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqReceiveChecklistScan](../fsreqReceiveChecklistScan_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqRemnant\_Get](../fsreqRemnant_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqReturn](../fsreqReturn_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSaveCNCFile](../fsreqSaveCNCFile_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSaveInspectionTestRecord](../fsreqSaveInspectionTestRecord_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSaveNest](../fsreqSaveNest_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSaveTimeTrackingRecord](../fsreqSaveTimeTrackingRecord_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSetAssemblyAssociation](../fsreqSetAssemblyAssociation_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSetCutListItemNestID](../fsreqSetCutListItemNestID_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSetInstanceLocation](../fsreqSetInstanceLocation_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqShip](../fsreqShip_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqShopFloorSave](../fsreqShopFloorSave_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSplicePackageTFS](../fsreqSplicePackageTFS_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqSplitPackageTFS](../fsreqSplitPackageTFS_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqTFSCut](../fsreqTFSCut_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqTFSManual](../fsreqTFSManual_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqTransmittalGet](../fsreqTransmittalGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqUserPartialGet](../fsreqUserPartialGet_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqValCutListItem](../fsreqValCutListItem_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqValInventory](../fsreqValInventory_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqValJob](../fsreqValJob_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqValStation](../fsreqValStation_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqValTruck](../fsreqValTruck_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqValUser](../fsreqValUser_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqVersion](../fsreqVersion_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkArea\_Get](../fsreqWorkArea_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartment\_Get](../fsreqWorkAreaDepartment_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentFutureTask\_Delete](../fsreqWorkAreaDepartmentFutureTask_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentFutureTask\_Get](../fsreqWorkAreaDepartmentFutureTask_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentFutureTask\_Upsert](../fsreqWorkAreaDepartmentFutureTask_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentSchedule\_Delete](../fsreqWorkAreaDepartmentSchedule_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentSchedule\_Get](../fsreqWorkAreaDepartmentSchedule_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentSchedule\_Move\_Start\_And\_End\_Dates](../fsreqWorkAreaDepartmentSchedule_Move_Start_And_End_Dates_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentSchedule\_Upsert](../fsreqWorkAreaDepartmentSchedule_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentScheduleShift\_Delete](../fsreqWorkAreaDepartmentScheduleShift_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentScheduleShift\_Get](../fsreqWorkAreaDepartmentScheduleShift_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkAreaDepartmentScheduleShift\_Upsert](../fsreqWorkAreaDepartmentScheduleShift_Upsert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_Delete](../fsreqWorkPackage_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_Get](../fsreqWorkPackage_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_Insert](../fsreqWorkPackage_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_OffsetFutureWorkPackage](../fsreqWorkPackage_OffsetFutureWorkPackage_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_ScheduleToWorkshop](../fsreqWorkPackage_ScheduleToWorkshop_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_Unschedule](../fsreqWorkPackage_Unschedule_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackage\_Update](../fsreqWorkPackage_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartment\_Delete](../fsreqWorkPackageDepartment_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartment\_Get](../fsreqWorkPackageDepartment_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartment\_Insert](../fsreqWorkPackageDepartment_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartment\_Update](../fsreqWorkPackageDepartment_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Delete](../fsreqWorkPackageDepartmentTask_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Get](../fsreqWorkPackageDepartmentTask_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Insert](../fsreqWorkPackageDepartmentTask_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_OffsetFutureWorkPackage](../fsreqWorkPackageDepartmentTask_OffsetFutureWorkPackage_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Schedule](../fsreqWorkPackageDepartmentTask_Schedule_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Split](../fsreqWorkPackageDepartmentTask_Split_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Unschedule](../fsreqWorkPackageDepartmentTask_Unschedule_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTask\_Update](../fsreqWorkPackageDepartmentTask_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTaskCompletion\_Delete](../fsreqWorkPackageDepartmentTaskCompletion_Delete_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTaskCompletion\_Get](../fsreqWorkPackageDepartmentTaskCompletion_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTaskCompletion\_Insert](../fsreqWorkPackageDepartmentTaskCompletion_Insert_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageDepartmentTaskCompletion\_Update](../fsreqWorkPackageDepartmentTaskCompletion_Update_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageGroup1List\_Get](../fsreqWorkPackageGroup1List_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkPackageGroup2List\_Get](../fsreqWorkPackageGroup2List_Get_Class/_index.md)  
+    [FabSuiteRequestApi.fsreqWorkshop\_Get](../fsreqWorkshop_Get_Class/_index.md)

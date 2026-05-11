@@ -1,0 +1,42 @@
+---
+title: fsreqProductionControlLoadRemainingGet.ShippingDestinationGroupID Property
+url: https://developer.tekla.com/doc/tekla-powerfab/2026/shipping-destination-group-id-property-79945
+slug: shipping-destination-group-id-property-79945
+node_id: 79945
+kind: Property
+parent: fsreqProductionControlLoadRemainingGet Class
+parent_url: https://developer.tekla.com/doc/tekla-powerfab/2026/fsreq-production-control-load-remaining-get-class-79936
+breadcrumb:
+- FabSuiteRequestApi Namespace
+- fsreqProductionControlLoadRemainingGet Class
+- fsreqProductionControlLoadRemainingGet Properties
+- fsreqProductionControlLoadRemainingGet.ShippingDestinationGroupID Property
+children: []
+---
+
+# fsreqProductionControlLoadRemainingGet.ShippingDestinationGroupID Property
+
+**Namespace:**
+ [FabSuiteRequestApi](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)  
+**Assembly:**
+ FabSuiteRequestApi (in FabSuiteRequestApi.dll) Version: 1.0.0.0 (1.0.0.0)
+
+Syntax
+
+C#
+
+```
+public string ShippingDestinationGroupID { get; set; }
+```
+
+#### Property Value
+
+Type: String
+
+See Also
+
+#### Reference
+
+[fsreqProductionControlLoadRemainingGet Class](_index.md)
+
+[FabSuiteRequestApi Namespace](https://developer.tekla.com/topic/en/21/50/ed077099-d6b1-2530-8df9-7430abf615b0)
