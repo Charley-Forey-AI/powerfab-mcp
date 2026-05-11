@@ -18,4 +18,12 @@
     <InternalsVisibleTo Include="PowerfabMcp.Server.Tests" />
   </ItemGroup>
 
+  <!-- Tekla XSD output: request-only avoids duplicate shared enums (fsUOM, fsPriority, …)
+       that exist in both request and response generated files when compiled together. -->
+  <ItemGroup>
+    <Compile Include="..\..\fabsuite-xml-request-v0108.cs" Link="Schema\fabsuite-xml-request-v0108.cs">
+      <Nullable>disable</Nullable>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -30,7 +30,7 @@ public sealed class WorkPackageTools
         "Create a new work package on a Tekla PowerFab job. Returns the new " +
         "work_package_id. Pass an idempotency_key to make retries safe.")]
     public Task<CreateWorkPackageResult> CreateWorkPackageAsync(
-        [Description("Production Control ID of the job that will own the work package.")]
+        [Description("Production Control ID of the job that will own the work package. Call list_production_control_jobs first if you do not know valid IDs.")]
         int productionControlId,
         [Description("Name / number of the new work package.")]
         string workPackageNumber,

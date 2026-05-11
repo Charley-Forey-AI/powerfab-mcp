@@ -133,6 +133,76 @@ public sealed class PowerfabClientTests
     }
 
     [Fact]
+    public async Task ExecuteAsync_TreatsSuccessfulOne_AsSuccess()
+    {
+        var api = new FakeTeklaPowerFabAPI();
+        api.Responses.Enqueue(_ => Envelope(
+            "<ConnectRemote><Successful>true</Successful><ConnectionGUID>G</ConnectionGUID></ConnectRemote>"));
+        api.Responses.Enqueue(_ => Envelope(
+            """
+            <GetProductionControlJobs>
+              <Successful>1</Successful>
+              <ProductionControlJob>
+                <ProductionControlID>1397</ProductionControlID>
+                <JobNumber>J1</JobNumber>
+                <JobDescription>Demo</JobDescription>
+              </ProductionControlJob>
+            </GetProductionControlJobs>
+            """));
+
+        var client = CreateClient(api);
+        var response = await client.ExecuteAsync(
+            "GetProductionControlJobs",
+            new XElement(Ns + "GetProductionControlJobs"));
+
+        Assert.Equal("1397", response.Elements().First(e => e.Name.LocalName == "ProductionControlJob")
+            .Elements().First(e => e.Name.LocalName == "ProductionControlID").Value);
+    }
+
+    [Fact]
+    public async Task Connect_AppendsHint_WhenXmLErrorLooksLikeTls_AndPortIsDatabase()
+    {
+        var api = new FakeTeklaPowerFabAPI();
+        api.Responses.Enqueue(_ => Envelope(
+            "<XMLError>Cannot determine the frame size or a corrupted frame was received.</XMLError>"));
+
+        var client = CreateClient(api, new PowerfabOptions
+        {
+            Username = "u",
+            Password = "p",
+            RemoteHost = "127.0.0.1",
+            RemotePort = 3306,
+        });
+
+        var ex = await Assert.ThrowsAsync<PowerfabException>(() =>
+            client.ExecuteAsync("GetProductionControlJobs", new XElement(Ns + "GetProductionControlJobs")));
+
+        Assert.Contains("3306", ex.Message);
+        Assert.Contains("database port", ex.Message);
+    }
+
+    [Fact]
+    public async Task Connect_DoesNotAppendDatabaseHint_WhenPortIsTypicalRemoteService()
+    {
+        var api = new FakeTeklaPowerFabAPI();
+        api.Responses.Enqueue(_ => Envelope(
+            "<XMLError>Cannot determine the frame size or a corrupted frame was received.</XMLError>"));
+
+        var client = CreateClient(api, new PowerfabOptions
+        {
+            Username = "u",
+            Password = "p",
+            RemoteHost = "127.0.0.1",
+            RemotePort = 8080,
+        });
+
+        var ex = await Assert.ThrowsAsync<PowerfabException>(() =>
+            client.ExecuteAsync("GetProductionControlJobs", new XElement(Ns + "GetProductionControlJobs")));
+
+        Assert.DoesNotContain("database port", ex.Message);
+    }
+
+    [Fact]
     public async Task ExecuteAsync_ConnectsExactlyOnce_UnderConcurrentRequests()
     {
         var api = new FakeTeklaPowerFabAPI();

@@ -116,6 +116,8 @@ public sealed class PowerfabClient : IPowerfabClient, IDisposable
                 _options.RemoteHost,
                 _options.RemotePort);
 
+            WarnIfRemotePortLooksLikeDatabase(_options.RemotePort);
+
             var connectCommand = new XElement(RequestNs + "ConnectRemote",
                 new XElement(RequestNs + "Username", _options.Username),
                 new XElement(RequestNs + "Password", _options.Password));
@@ -164,7 +166,8 @@ public sealed class PowerfabClient : IPowerfabClient, IDisposable
         }
         catch (Exception ex)
         {
-            throw new PowerfabException($"Transport error talking to PowerFab Remote Service: {ex.Message}", ex);
+            var msg = $"Transport error talking to PowerFab Remote Service: {ex.Message}";
+            throw new PowerfabException(AppendMisconfiguredRemotePortHint(msg), ex);
         }
     }
 
@@ -191,7 +194,7 @@ public sealed class PowerfabClient : IPowerfabClient, IDisposable
         return sw.ToString();
     }
 
-    private static XDocument ParseResponse(string responseXml)
+    private XDocument ParseResponse(string responseXml)
     {
         if (string.IsNullOrWhiteSpace(responseXml))
         {
@@ -204,11 +207,62 @@ public sealed class PowerfabClient : IPowerfabClient, IDisposable
         }
         catch (XmlException ex)
         {
-            throw new PowerfabException($"PowerFab returned malformed XML: {ex.Message}", ex);
+            throw new PowerfabException(AppendMisconfiguredRemotePortHint($"PowerFab returned malformed XML: {ex.Message}"), ex);
         }
     }
 
-    private static void ThrowOnTopLevelError(XDocument doc)
+    /// <summary>
+    /// Users often point RemotePort at the database (3306) instead of the Remote Service API port.
+    /// </summary>
+    private string AppendMisconfiguredRemotePortHint(string message)
+    {
+        if (!IsCommonDatabasePort(_options.RemotePort))
+        {
+            return message;
+        }
+
+        if (!LooksLikeProtocolMismatch(message))
+        {
+            return message;
+        }
+
+        return $"{message} " +
+               $"(Configuration hint: Powerfab__RemotePort is {_options.RemotePort}, which is typically a database port. " +
+               "Use Powerfab__RemoteHost / Powerfab__RemotePort for the Tekla PowerFab Remote Service (API/XML), not the SQL Server instance—see Integration / Remote Service settings in PowerFab Office.)";
+    }
+
+    private static bool IsCommonDatabasePort(int port) =>
+        port is 3306 or 33060 or 5432 or 1433;
+
+    private static bool LooksLikeProtocolMismatch(string message)
+    {
+        if (string.IsNullOrEmpty(message))
+        {
+            return false;
+        }
+
+        return message.Contains("frame", StringComparison.OrdinalIgnoreCase)
+            || message.Contains("corrupt", StringComparison.OrdinalIgnoreCase)
+            || message.Contains("SSL", StringComparison.OrdinalIgnoreCase)
+            || message.Contains("TLS", StringComparison.OrdinalIgnoreCase)
+            || (message.Contains("authentication", StringComparison.OrdinalIgnoreCase)
+                && message.Contains("handshake", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private void WarnIfRemotePortLooksLikeDatabase(int port)
+    {
+        if (!IsCommonDatabasePort(port))
+        {
+            return;
+        }
+
+        _logger.LogWarning(
+            "Powerfab RemotePort is {Port}, which is often used by SQL/MySQL/PostgreSQL — not the PowerFab Remote Service API. " +
+            "If calls fail with TLS or 'frame' errors, set Powerfab__RemotePort to the Remote Service port from PowerFab Office (many sites use 8080).",
+            port);
+    }
+
+    private void ThrowOnTopLevelError(XDocument doc)
     {
         var root = doc.Root ?? throw new PowerfabException("PowerFab response had no root element.");
         var errorEl = root.Elements().FirstOrDefault(e => string.Equals(e.Name.LocalName, "XMLError", StringComparison.OrdinalIgnoreCase));
@@ -218,12 +272,13 @@ public sealed class PowerfabClient : IPowerfabClient, IDisposable
         }
 
         var message = errorEl.Value?.Trim();
-        throw new PowerfabException(string.IsNullOrEmpty(message)
+        var text = string.IsNullOrEmpty(message)
             ? "PowerFab returned an XMLError with no message."
-            : $"PowerFab XMLError: {message}");
+            : $"PowerFab XMLError: {message}";
+        throw new PowerfabException(AppendMisconfiguredRemotePortHint(text));
     }
 
-    private static XElement ExtractCommandResponse(XDocument doc, string responseElementName)
+    private XElement ExtractCommandResponse(XDocument doc, string responseElementName)
     {
         var root = doc.Root!;
         var responseEl = root.Elements().FirstOrDefault(e =>
@@ -237,19 +292,32 @@ public sealed class PowerfabClient : IPowerfabClient, IDisposable
         var successful = LocalString(responseEl, "Successful");
         var errorMessage = LocalString(responseEl, "ErrorMessage");
 
-        if (!string.Equals(successful, "true", StringComparison.OrdinalIgnoreCase))
+        // PowerFab uses both "true"/"false" and "1"/"0" in different responses.
+        if (!IsSuccessfulFlag(successful))
         {
             var msg = string.IsNullOrWhiteSpace(errorMessage)
                 ? $"PowerFab command {responseElementName} reported failure with no ErrorMessage."
                 : $"PowerFab command {responseElementName} failed: {errorMessage}";
 
-            throw new PowerfabException(msg)
+            throw new PowerfabException(AppendMisconfiguredRemotePortHint(msg))
             {
                 IsAuthExpired = LooksLikeAuthExpired(errorMessage),
             };
         }
 
         return responseEl;
+    }
+
+    private static bool IsSuccessfulFlag(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return false;
+        }
+
+        return string.Equals(value, "true", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(value, "1", StringComparison.Ordinal)
+            || string.Equals(value, "yes", StringComparison.OrdinalIgnoreCase);
     }
 
     private static string LocalString(XElement parent, string localName)

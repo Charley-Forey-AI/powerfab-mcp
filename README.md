@@ -2,8 +2,8 @@
 
 An [MCP](https://modelcontextprotocol.io) server, written in C# / .NET 8 and
 hosted on ASP.NET Core, that exposes [Tekla PowerFab](https://developer.tekla.com/tekla-powerfab/documentation)
-operations as tools an LLM can call. The first tool, `create_work_package`,
-wraps the PowerFab `WorkPackage_Insert` command.
+operations as tools an LLM can call. The first tools are `list_production_control_jobs`
+(discover job IDs) and `create_work_package` (adds a work package via `WorkPackage_Insert`).
 
 The server uses the **MCP Streamable HTTP** transport so a single running
 instance can serve many concurrent clients (Cursor, Claude Desktop, internal
@@ -70,13 +70,17 @@ supported variable.
 | `Powerfab:Username` | `Powerfab__Username` | _required_ | External user. |
 | `Powerfab:Password` | `Powerfab__Password` | _required_ | External user password. |
 | `Powerfab:RemoteHost` | `Powerfab__RemoteHost` | `127.0.0.1` | PowerFab Remote Service host. |
-| `Powerfab:RemotePort` | `Powerfab__RemotePort` | `8080` | PowerFab Remote Service port. |
+| `Powerfab:RemotePort` | `Powerfab__RemotePort` | `8080` | **Remote Service API** port (XML), **not** SQL Server or MySQL. If you use `3306` (MySQL) you will get TLS / “frame” errors. |
 | `Powerfab:ApiLog` | `Powerfab__ApiLog` | _empty_ | Set to `all` to record every command in PowerFab → Maintenance → Integration Settings → API Log. |
 | `Powerfab:RequestTimeout` | `Powerfab__RequestTimeout` | `00:01:00` | Per-call timeout (`HH:mm:ss`). |
 | `Hosting:BindUrl` | `Hosting__BindUrl` | `http://127.0.0.1:3000` | Kestrel listen URL. |
 | `Hosting:McpPath` | `Hosting__McpPath` | `/mcp` | MCP endpoint path. |
 | `Hosting:BearerToken` | `Hosting__BearerToken` | _empty_ | When set, every MCP request must include `Authorization: Bearer <token>`. **Required when binding to a non-loopback address.** |
 | `Hosting:AllowedOrigins` | `Hosting__AllowedOrigins` | _empty_ | Comma-separated list. Loopback origins are auto-allowed when bound to loopback. |
+
+### Troubleshooting: `XMLError` / “Cannot determine the frame size…”
+
+That message almost always means the Tekla client is talking to the **wrong host or port** (protocol mismatch). **`Powerfab__RemotePort` must be the PowerFab Remote Service** endpoint shown for API/Integration in PowerFab Office, **not** the database port (e.g. **3306 is MySQL**). Set the correct port in `.env` or the environment and restart the MCP server.
 
 ## Run locally
 
@@ -133,7 +137,7 @@ Backed by the PowerFab `WorkPackage_Insert` command (see
 
 | Parameter | Type | Required | Notes |
 | --- | --- | --- | --- |
-| `productionControlId` | int | yes | The job that will own the work package. |
+| `productionControlId` | int | yes | The job that will own the work package. Use `list_production_control_jobs` to find valid IDs. |
 | `workPackageNumber` | string | yes | Name / number of the new work package. |
 | `description` | string | no | |
 | `notes` | string | no | |
@@ -158,6 +162,19 @@ On success returns:
 On any PowerFab failure (`XMLError` or `Successful=false`), the tool returns
 an MCP error whose text is the underlying PowerFab `ErrorMessage`.
 
+### `list_production_control_jobs`
+
+Backed by PowerFab `GetProductionControlJobs` (see
+[`documentation/Code_Examples/Code_example_Retrieve_a_list_of_jobs_from_Tekla_PowerFab.md`](documentation/Code_Examples/Code_example_Retrieve_a_list_of_jobs_from_Tekla_PowerFab.md)).
+
+No required parameters. Optional filters: `groupName`, `groupName2`, `jobNumber`,
+`includeClosedJobs`, `onlyLinkedToProject`, `onlyContainingCutLists`,
+`productionControlId`.
+
+Returns `jobs[]` with `productionControlId`, `jobNumber`, `jobDescription`,
+`jobLocation`, `groupName`, `groupName2`, and optional `cutListCount` (when
+`onlyContainingCutLists` is true and the API supplies it).
+
 ## Adding new tools
 
 1. Drop a new `[McpServerToolType]` class under
@@ -179,9 +196,8 @@ dotnet test
 
 Includes:
 
-- Unit tests for `WorkPackageTools` (asserts every input field maps to the
-  correct PowerFab XML element, covers the auto-GUID path and validation
-  errors).
+- Unit tests for `WorkPackageTools` (field mapping, validation, idempotency
+  key) and `ProductionControlTools` (GetProductionControlJobs XML and filters).
 - Unit tests for `PowerfabClient` against a fake `ITeklaPowerFabAPI` (verifies
   connection caching, single-flight reconnect under concurrent load, error
   propagation, and the auth-expired retry path).
